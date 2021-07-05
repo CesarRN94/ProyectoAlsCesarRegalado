@@ -1,0 +1,52 @@
+application: proyectoalscesarregalado
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: handlers.main.app
+
+- url: /peliculas/nueva
+  script: handlers.peliculas.nueva.app
+  login: required
+
+- url: /peliculas/elimina
+  script: handlers.peliculas.elimina.app
+  login: required
+
+- url: /peliculas/modifica
+  script: handlers.peliculas.modifica.app
+  login: required
+
+- url: /comentarios/lista
+  script: handlers.comentarios.lista.app
+  login: required
+
+- url: /comentarios/nuevo
+  script: handlers.comentarios.nuevo.app
+  login: required
+
+- url: /comentarios/elimina
+  script: handlers.comentarios.elimina.app
+  login: required
+
+- url: /comentarios/modifica
+  script: handlers.comentarios.modifica.app
+  login: required
+
+- url: /templates
+  static_dir: templates
+  application_readable: true
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+- name: jinja2
+  version: "latest"

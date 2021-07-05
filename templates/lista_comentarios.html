@@ -1,0 +1,37 @@
+{% extends "esqueleto.html" %}
+{% block contenido %}
+
+
+<div class="registro">
+<a href="{{ url_usr }}">Logout</a>
+</div>
+
+
+<h2>Comentarios</h2>
+<h3>{{ pelicula.titulo }} &nbsp;&nbsp;&nbsp; ({{ pelicula.puntuacion }})</h3>
+<p class="sinopsis">{{ pelicula.sinopsis }}</p>
+<p>
+<a href="/comentarios/nuevo?plc={{ pelicula.key.urlsafe() }}">Nuevo comentario</a>
+</p>
+{% if comentarios.count() > 0 %}
+    {% for comentario in comentarios %}
+        <p class="estcomentario"><b>{{ comentario.hora.strftime("%A %d %B %Y %I:%M") }}</b> - ({{ comentario.puntuacion }})
+        </p>
+        <p class="estcomentario">
+           {{ comentario.opinion }}
+        </p>
+        {% if admin %}
+            <p class="estcomentario">
+            (<a href="/comentarios/elimina?id={{ comentario.key.urlsafe() }}&plc={{ pelicula.key.urlsafe() }}">Eliminar</a>)
+            (<a href="/comentarios/modifica?id={{ comentario.key.urlsafe() }}&plc={{ pelicula.key.urlsafe()}}">Modificar</a>)
+            </p>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <p class="estcomentario"><b>No hay ninguna comentario de esta pelicula.</b></p>
+{% endif %}
+<div class="Return">
+<a href="/">Inicio</a>
+</div>
+
+{% endblock %}

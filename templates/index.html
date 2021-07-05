@@ -1,0 +1,42 @@
+{% extends "esqueleto.html" %}
+{% block contenido %}
+
+{% if usr %}
+    <div class="registro">
+    <a href="{{ url_usr }}">Logout</a>
+    </div>
+    <h2>Peliculas</h2>
+    {% if admin %}
+        <p class="nuevaPeli">
+        <a href="/peliculas/nueva">Nueva pelicula</a>
+        </p>
+    {% endif %}
+    <div class="cuerpo">
+    {% if peliculas.count() > 0 %}
+        <table class="table">
+        {% for pelicula in peliculas %}
+            <tr>
+                <td><span class="peliTitulo">{{ pelicula.titulo }}</span></td>
+                <td>Nota <b>PeliAffinity</b>: {{ pelicula.puntuacion }}/10</td>
+                <td>
+                    {%if admin %}
+                        <a href="/peliculas/elimina?id={{ pelicula.key.urlsafe() }}">Eliminar</a>
+                        <a href="/peliculas/modifica?id={{ pelicula.key.urlsafe() }}">Modificar</a>
+                    {% endif %}
+                        <a href="/comentarios/lista?plc={{ pelicula.key.urlsafe() }}" class="opciones">Ver</a></br>
+                </td>
+             </tr>
+        {% endfor %}
+         </table>
+    {% else %}
+        <p class="nopeliculas"><b>No hay ninguna pelicula que puntuar.</b></p>
+    {% endif %}
+    </div>
+{% else %}
+        <p class="inicio">
+        <a class="login" href="{{ url_usr }}">Regístrate</a> para comentar tus películas favoritas.
+        </p>
+{% endif %}
+
+
+{% endblock %}

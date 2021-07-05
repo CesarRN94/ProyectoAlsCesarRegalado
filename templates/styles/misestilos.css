@@ -1,0 +1,123 @@
+header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 40px solid #3C6E99;
+    margin-left: -10px;
+    margin-top: -35px;
+    margin-bottom: 20px;
+    padding-left: 80px;
+    padding-top: 20px;
+    background-color: #447CAD;
+}
+
+.form {
+    padding: 10px;
+    width: 170px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: left;
+
+}
+
+.boton {
+    display: block;
+    text-align: right;
+}
+
+.table{
+    width: 900px;
+    margin: auto;
+    border-spacing: 100px 20px
+}
+
+
+a{
+        color: #207ebf;
+        text-decoration: none;
+        font-weight: bold;
+}
+
+a:hover{
+    border-bottom: 1px solid #207ebf;
+}
+
+.nuevaPeli{
+
+    text-align: center;
+}
+
+.nuevaPeli a {
+
+    color: #207ebf;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.peli{
+    color: #d8e823;
+}
+
+
+h1{
+    font-size: 3.1em;
+}
+
+h2 {
+    padding-top: 10px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+h3 {
+    padding-top: 10px;
+    font-size: 2em;
+    text-align: center;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.inicio {
+
+    text-align: center;
+    margin-top: 300px;
+    font-size: 1.5em;
+
+}
+
+.registro {
+    text-align: right;
+}
+
+.inicio {
+    text-align: center;
+}
+
+.peliTitulo{
+
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.sinopsis{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.estcomentario{
+    text-align: center;
+}
+
+.nopeliculas{
+
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+}
+

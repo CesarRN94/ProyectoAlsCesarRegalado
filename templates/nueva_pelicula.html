@@ -1,0 +1,43 @@
+{% extends "esqueleto.html" %}
+{% block contenido %}
+
+<h2>Nueva Pelicula</h2>
+
+<div class="form">
+  <form id="frmNuevaPelicula" method="post" action="/peliculas/nueva" onsubmit="return check()">
+    <p>
+      <label for="edTitulo">Titulo</label>
+      <input type="text" id="edTitulo" name="edTitulo">
+    </p>
+    <p>
+      <label for="edPuntuacion">Puntuacion</label>
+      <input type="number" id="edPuntuacion" name="edPuntuacion" placeholder="5"
+              min="0" max="10">
+   </p>
+    <p>
+      <label for="edSinopsis">Sinopsis</label>
+      <textarea  id="edSinopsis" name="edSinopsis" rows="5" cols="21"></textarea>
+    </p>
+    <div class="boton">
+      <button type="submit" class="btn btn-info">Crear</button>
+    </div>
+  </form>
+</div>
+<div class="Return">
+<a href="/">Inicio</a>
+</div>
+
+<script>
+  function check(){
+
+    const edTitulo = document.getElementById( "edTitulo" );
+    const edSinopsis = document.getElementById( "edSinopsis" );
+    const edPuntuacion = document.getElementById( "edPuntuacion" );
+
+    return (edTitulo.value.trim().length > 0
+            && edSinopsis.value.trim().length > 0
+            && edPuntuacion.value.trim().length > 0);
+  }
+</script>
+
+{% endblock %}
